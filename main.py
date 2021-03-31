@@ -1,14 +1,13 @@
-from doors_system.card import Card
-from doors_system.cards import Cards
-from doors_system.card_reader import CardReader
-from doors_system.locker import Locker
-
 import time
 
+from doors_system.card import Card
+from doors_system.card_reader import CardReader
+from doors_system.cards import Cards
+from doors_system.locker import Locker
 
 if __name__ == "__main__":
-    c1 = Card(b"6E536046010080FF")
-    c2 = Card(b"445E6046010080FF")
+    c1 = Card("6E536046010080FF")
+    c2 = Card("445E6046010080FF")
 
     cards = Cards()
 
@@ -21,7 +20,6 @@ if __name__ == "__main__":
     # while True:
     while now < time_up:
         cards.check_card(CardReader.get_card_id())
-        
         now = time.time()
-        
+
     print("Reader is up")
