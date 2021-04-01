@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+# -*- coding: utf8 -*-
+
+
 from doors_system.card import Card
 import datetime
 import time
