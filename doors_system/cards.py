@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# /usr/bin/env python3
 # -*- coding: utf8 -*-
 
 
@@ -14,6 +14,7 @@ class Cards:
         dinamicaly checking which of them are blocked or active"""
 
         self.all_cards = []
+        self.all_cards_ids = set()
 
     @property
     def blocked_cards(self):
@@ -32,7 +33,18 @@ class Cards:
 
     def add_card(self, card: Card):
         """Apend card to the list of all cards"""
-        self.all_cards.append(card)
+        if card.card_id not in self.all_cards_ids:
+            self.all_cards.append(card)
+            self.all_cards_ids.add(card.card_id)
+        # else:
+            # print(f"{card} is already regestered")
+
+    def remove_card(self, card: Card):
+        if card.card_id in self.all_cards_ids:
+            self.all_cards.remove(card)
+            self.all_cards_ids.remove(card.card_id)
+        # else:
+            # print(f"{card} does not exists")
 
     def find_card_by_id(self, card_id):
         """Finds and returns card by its ID property"""
